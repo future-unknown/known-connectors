@@ -3,7 +3,7 @@
   "name": "info.known/known",
   "title": "Known",
   "description": "Shared memory for teams: every AI agent works from your company's knowledge, decisions and history.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "websiteUrl": "https://known.info",
   "remotes": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "known",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "displayName": "Known",
   "tagline": "Shared memory for teams",
   "summary": "Give every AI agent a foundation of organizational understanding. Known preserves your company's knowledge, decisions, and history so agents can work with context from the start.",
@@ -17,7 +17,15 @@
     "url": "https://known.info"
   },
   "category": "Productivity",
-  "keywords": ["shared memory", "wiki", "knowledge base", "company context", "records", "issues", "crm"],
+  "keywords": [
+    "shared memory",
+    "wiki",
+    "knowledge base",
+    "company context",
+    "records",
+    "issues",
+    "crm"
+  ],
   "license": "Proprietary",
   "mcp": {
     "url": "https://api.known.info/mcp",
@@ -48,38 +56,60 @@
       {
         "description": "List the wikis Known gives access to",
         "prompt": "Which wikis do I have in Known?",
-        "tools": ["wiki_list"],
+        "tools": [
+          "wiki_list"
+        ],
         "expected": "Lists the demo organization's wikis (general, product, customers) with each one's description and who reads it."
       },
       {
         "description": "Answer from the wikis with sources",
         "prompt": "What did we decide about pricing? Use Known.",
-        "tools": ["wiki_search", "wiki_read"],
+        "tools": [
+          "wiki_search",
+          "wiki_read"
+        ],
         "expected": "Finds the pricing decision page in the demo wikis and summarizes the decision and its reasons, linking the page it read."
       },
       {
         "description": "Read a table's current records",
         "prompt": "Show me the open issues in Known, highest priority first.",
-        "tools": ["wiki_records"],
+        "tools": [
+          "wiki_records"
+        ],
         "expected": "Reads product:issues and lists the issues that aren't done or cancelled, with key, title, status and priority, highest priority first."
       },
       {
         "description": "Write a new page after confirmation",
         "prompt": "Write a page in Known's general wiki called \"Meeting notes 2026-11-02\": we agreed to ship the export fix on Friday, and Sam owns it.",
-        "tools": ["wiki_write"],
+        "tools": [
+          "wiki_write"
+        ],
         "expected": "Shows the page it will write, writes it to general:meeting-notes-2026-11-02 once confirmed, and returns the page's link."
       },
       {
         "description": "Add a record that the table's schema checks",
         "prompt": "File an issue in Known: the CSV export drops accented characters. Bug, priority p1.",
-        "tools": ["wiki_read", "wiki_records", "wiki_set"],
+        "tools": [
+          "wiki_read",
+          "wiki_records",
+          "wiki_set"
+        ],
         "expected": "Reads the issues table's rules and schema, takes the next free key, and adds the issue with type bug, priority p1 and status triage, then returns its link."
       }
     ],
     "negative": [
-      { "description": "General knowledge unrelated to the company", "prompt": "What's the capital of Australia?" },
-      { "description": "Creative writing with no company context", "prompt": "Write a short poem about autumn." },
-      { "description": "A task for another service", "prompt": "Book me a table for two at an Italian restaurant tonight." }
+      {
+        "description": "General knowledge unrelated to the company",
+        "prompt": "What's the capital of Australia?"
+      },
+      {
+        "description": "Creative writing with no company context",
+        "prompt": "Write a short poem about autumn."
+      },
+      {
+        "description": "A task for another service",
+        "prompt": "Book me a table for two at an Italian restaurant tonight."
+      }
     ]
   },
   "demoVideo": null

@@ -1,6 +1,6 @@
 {
   "name": "known",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Shared memory for teams. Give every AI agent a foundation of organizational understanding. Known preserves your company's knowledge, decisions, and history so agents can work with context from the start.",
   "author": {
     "name": "Unknown Inc.",
