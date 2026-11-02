@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "known": {
+      "type": "http",
+      "url": "https://api.known.info/mcp"
+    }
+  }
+}

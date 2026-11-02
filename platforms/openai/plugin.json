@@ -1,0 +1,101 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "known",
+  "version": "1.0.0",
+  "description": "Shared memory for teams. Give every AI agent a foundation of organizational understanding. Known preserves your company's knowledge, decisions, and history so agents can work with context from the start.",
+  "author": {
+    "name": "Unknown Inc.",
+    "email": "hello@known.info",
+    "url": "https://known.info"
+  },
+  "homepage": "https://known.info",
+  "license": "Proprietary",
+  "keywords": [
+    "shared memory",
+    "wiki",
+    "knowledge base",
+    "company context",
+    "records",
+    "issues",
+    "crm"
+  ],
+  "extensions": {
+    "com.openai": {
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "interface": {
+        "displayName": "Known",
+        "shortDescription": "Shared memory for teams",
+        "longDescription": "Shared memory for teams. Give every AI agent a foundation of organizational understanding: Known preserves your company's knowledge, decisions, and history so agents can work with context from the start.\n\nYour team and your agents read and write the same wikis of pages and tables. Ask what your company knows, and the answer comes from Known with links to the pages and records it used. Ask to write something down, and it lands in the right wiki, versioned, with who wrote it.\n\nWhat you can do:\n- Find answers in your company's wikis: plans, decisions, customers, processes.\n- Write and edit pages, and keep tables (issues, a CRM, a fundraise) whose fields a schema checks on every write.\n- See how any page or record changed over time, and what links to it.\n- Publish small sites on Known that sign your team in and read your wikis.\n\nSign in, connect your agent, and the knowledge starts keeping itself. You sign in to Known in your browser and choose the organizations the assistant may use; it acts as you, within what you can already read and write, and Known records every change it makes as yours, made through the assistant.\n\nLimits: the assistant works only in the organizations you choose when connecting. Members and permissions are managed in Known itself.",
+        "developerName": "Unknown Inc.",
+        "category": "Productivity",
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://known.info",
+        "supportURL": "https://known.info/docs/support",
+        "privacyPolicyURL": "https://known.info/legal/privacy",
+        "termsOfServiceURL": "https://known.info/legal/terms",
+        "defaultPrompt": [
+          "What does my company know about our pricing?",
+          "Write down how our team makes decisions in Known.",
+          "Set up issue tracking for our team in Known."
+        ],
+        "brandColor": "#2A2A22",
+        "brandColorDark": "#7FA693",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List the wikis Known gives access to",
+              "prompt": "Which wikis do I have in Known?",
+              "tools_triggered": "wiki_list",
+              "expected_behavior": "Lists the demo organization's wikis (general, product, customers) with each one's description and who reads it."
+            },
+            {
+              "description": "Answer from the wikis with sources",
+              "prompt": "What did we decide about pricing? Use Known.",
+              "tools_triggered": "wiki_search, wiki_read",
+              "expected_behavior": "Finds the pricing decision page in the demo wikis and summarizes the decision and its reasons, linking the page it read."
+            },
+            {
+              "description": "Read a table's current records",
+              "prompt": "Show me the open issues in Known, highest priority first.",
+              "tools_triggered": "wiki_records",
+              "expected_behavior": "Reads product:issues and lists the issues that aren't done or cancelled, with key, title, status and priority, highest priority first."
+            },
+            {
+              "description": "Write a new page after confirmation",
+              "prompt": "Write a page in Known's general wiki called \"Meeting notes 2026-11-02\": we agreed to ship the export fix on Friday, and Sam owns it.",
+              "tools_triggered": "wiki_write",
+              "expected_behavior": "Shows the page it will write, writes it to general:meeting-notes-2026-11-02 once confirmed, and returns the page's link."
+            },
+            {
+              "description": "Add a record that the table's schema checks",
+              "prompt": "File an issue in Known: the CSV export drops accented characters. Bug, priority p1.",
+              "tools_triggered": "wiki_read, wiki_records, wiki_set",
+              "expected_behavior": "Reads the issues table's rules and schema, takes the next free key, and adds the issue with type bug, priority p1 and status triage, then returns its link."
+            }
+          ],
+          "negative": [
+            {
+              "description": "General knowledge unrelated to the company",
+              "prompt": "What's the capital of Australia?"
+            },
+            {
+              "description": "Creative writing with no company context",
+              "prompt": "Write a short poem about autumn."
+            },
+            {
+              "description": "A task for another service",
+              "prompt": "Book me a table for two at an Italian restaurant tonight."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

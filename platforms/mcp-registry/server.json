@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "info.known/known",
+  "title": "Known",
+  "description": "Shared memory for teams: every AI agent works from your company's knowledge, decisions and history.",
+  "version": "1.0.0",
+  "websiteUrl": "https://known.info",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.known.info/mcp"
+    }
+  ]
+}

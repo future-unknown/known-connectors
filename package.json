@@ -1,0 +1,16 @@
+{
+  "name": "@future-unknown/known-connectors",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Known's listings for ChatGPT, Claude, the Official MCP Registry and Cursor, built from one source",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check"
+  },
+  "devDependencies": {
+    "ajv": "^8.18.0",
+    "ajv-formats": "^3.0.1"
+  }
+}

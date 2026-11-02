@@ -1,0 +1,25 @@
+{
+  "name": "known",
+  "owner": {
+    "name": "Unknown Inc.",
+    "url": "https://known.info"
+  },
+  "description": "Known for Claude Code: shared memory for teams.",
+  "plugins": [
+    {
+      "name": "known",
+      "source": "./platforms/claude/known",
+      "description": "Shared memory for teams. Give every AI agent a foundation of organizational understanding. Known preserves your company's knowledge, decisions, and history so agents can work with context from the start.",
+      "category": "productivity",
+      "tags": [
+        "shared memory",
+        "wiki",
+        "knowledge base",
+        "company context",
+        "records",
+        "issues",
+        "crm"
+      ]
+    }
+  ]
+}
